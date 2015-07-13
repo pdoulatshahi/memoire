@@ -20,8 +20,10 @@
   font-size: 64px;
   cursor: pointer;
   text-align: center;
-  font: 6px;
+  font-size: 12px;
 }
 
-$("#memory_board > div").hover(function(){
-  $(this).css("box-shadow", "10px 10px 5px #888"}
+img {
+  height: 100%;
+  width: 100%;
+}
