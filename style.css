@@ -1,0 +1,27 @@
+#memory_board {
+  background: #7FDBFF;
+  border: #999 1px solid;
+  border-radius: 10px;
+  width: 1080px;
+  height: 550px;
+  padding: 24px;
+  margin:0px auto;
+}
+
+#memory_board > div{
+  background: #DDDDDD;
+  border-radius: 10px;
+  border: #000 1px solid;
+  width: 71px;
+  height: 71px;
+  float: left;
+  margin: 10px;
+  padding: 20px;
+  font-size: 64px;
+  cursor: pointer;
+  text-align: center;
+  font: 6px;
+}
+
+$("#memory_board > div").hover(function(){
+  $(this).css("box-shadow", "10px 10px 5px #888"}
