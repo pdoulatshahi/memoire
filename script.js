@@ -1,4 +1,4 @@
-var foodVocab = ["la pomme", "la banane", "une orange", "les raisins", "un avocat", "le citron", "le citron vert", "la pastèque", "la mangue", "la poire", "la framboise", "la fraise", "la myrtille", "la cerise", "un ananas", "le pamplemousse"]
+var foodVocab = ["pomme", "banane", "orange", "raisins", "avocat", "citron", "citronvert", "pastèque", "mangue", "poire", "framboise", "fraise", "myrtille", "cerise", "ananas", "pamplemousse"]
 
 var foodImages = ["vocab/food/images/apple.jpeg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.png", "vocab/food/images/lime.png", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.png", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/grapefruit.png"]
 
@@ -21,16 +21,19 @@ function newGame(){
     food = foodVocab.concat(foodImages);
     shuffleArray(food);
     for(var i = 0; i < food.length; i++) {
-		output += '<div id="tile_'+i+'" onclick="clickOnTile(this,\''+food[i]+'\')"></div>'
+		$("#memory_board").append('<div id="tile_'+i+'" data-food='+food[i]+' class="card"></div>');
 	  }
-	  document.getElementById('memory_board').innerHTML = output;
-}
+    $("body").on("click", ".card", function(event){
+      clickOnTile(event.target,event.target.getAttribute("data-food"));
+    });
+  }
 
 function clickOnTile(tile,val){
-    this.clickCounter++;
+    clickCounter++;
     tile.style.background = 'green';
+    console.log(val.substring(0,5));
     if (val.substring(0, 5) == "vocab"){
-      var tileImage = document.createElement("img");
+      tileImage = document.createElement("img");
       tileImage.src = val;
       tile.appendChild(tileImage);
       clickedTiles.push(val);
@@ -41,34 +44,38 @@ function clickOnTile(tile,val){
       clickedTiles.push(val);
       tileIds.push(tile.id);
     }
-    if (clickCounter === 2) {
+    matchOrNot();
+  }
+
+function matchOrNot(tile,val){
+    if (clickCounter % 2 === 0) {
       if (((foodVocab.indexOf(clickedTiles[0]) === foodImages.indexOf(clickedTiles[1])) && (foodVocab.indexOf(clickedTiles[0]) !== -1))
       || (foodVocab.indexOf(clickedTiles[1]) === foodImages.indexOf(clickedTiles[0])) && ((foodVocab.indexOf(clickedTiles[1])) !== -1)) {
-      tilesFlipped +=2;
-      clickedTiles = [];
-      clickCounter = 0;
-      $("#"+tileIds[0]).css("background", "blue");
-      $("#"+tileIds[1]).css("background", "blue");
+        clickedTiles = [];
+        tileIds = [];
+        tilesFlipped +=2;
+        $(".flippedtiles").html("Tiles Flipped: " + tilesFlipped);
+          if (tilesFlipped == food.length){
+					alert("Board cleared... generating new board");
+					document.getElementById('memory_board').innerHTML = "";
+					newGame();
+        }
       }
       else {
-      clickedTiles = [];
-      clickCounter = 0;
-        if ($("#"+tileIds[0]).find('img').length) {
-        $("#"+tileIds[0]).remove()
-        }
-      else {
-        ($("#"+tileIds[0]).text(""))
-        }
-      if ($("#"+tileIds[1]).find('img').length) {
-        $("#"+tileIds[1]).remove()
-        }
-      else {
-        ($("#"+tileIds[1]).text(""))
-        }
-      tileIds = [];
+        function flip2Back(){
+				    var tile_1 = document.getElementById(tileIds[0]);
+				    var tile_2 = document.getElementById(tileIds[1]);
+				    tile_1.style.background = "#001f3f";
+            	    tile_1.innerHTML = "";
+				    tile_2.style.background = "#001f3f";
+            	    tile_2.innerHTML = "";
+				    clickedTiles = [];
+            	    tileIds = [];
+				}
+				setTimeout(flip2Back, 700);
       }
-    }
   }
+}
 
 
 newGame()
