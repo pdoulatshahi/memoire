@@ -10,11 +10,22 @@ document.getElementById("fruits").addEventListener("click", function (){
 
 var vegetableVocab = ["laitue", "céleri", "brocoli", "aubergine", "citrouille", "courgette", "frites", "asperge", "oignon", "ail", "concombre", "piment", "poivron", "champignon", "betterave", "artichaut"]
 
-var vegetableImages = ["vocab/food/images/lettuce.jpg", "vocab/food/images/celery.png", "vocab/food/images/broccoli.png", "vocab/food/images/eggplant.jpg", "vocab/food/images/pumpking.jpeg", "vocab/food/images/zucchini.jpg", "vocab/food/images/frenchfries.gif", "vocab/food/images/asparagus.jpg", "vocab/food/images/onion.png", "vocab/food/images/garlic.jpg", "vocab/food/images/cucumber.jpg", "vocab/food/images/chilipepper.jpeg", "vocab/food/images/bellpepper.png", "vocab/food/images/mushroom.png", "vocab/food/images/beet.jpg", "vocab/food/images/artichoke.gif"]
+var vegetableImages = ["vocab/food/images/lettuce.jpg", "vocab/food/images/celery.png", "vocab/food/images/broccoli.png", "vocab/food/images/eggplant.jpg", "vocab/food/images/pumpkin.jpeg", "vocab/food/images/zucchini.jpg", "vocab/food/images/frenchfries.gif", "vocab/food/images/asparagus.jpg", "vocab/food/images/onion.png", "vocab/food/images/garlic.jpg", "vocab/food/images/cucumber.jpg", "vocab/food/images/chilipepper.jpeg", "vocab/food/images/bellpepper.png", "vocab/food/images/mushroom.png", "vocab/food/images/beet.jpg", "vocab/food/images/artichoke.gif"]
 
 document.getElementById("vegetables").addEventListener("click", function (){
   wordArray = vegetableVocab;
   imageArray = vegetableImages;
+  newGame();
+})
+
+var clothingVocab = ["pantalon", "t-shirt", "chemise", "chapeau", "casquette", "cravate", "chaussures", "chaussettes", "jean", "short", "ceinture", "costume", "sandales", "bottes", "gilet", "sous-vêtements"]
+
+var clothingImages = ["vocab/food/images/pants.png", "vocab/food/images/t-shirt.jpg", "vocab/food/images/shirt.png", "vocab/food/images/hat.gif", "vocab/food/images/cap.gif", "vocab/food/images/tie.png", "vocab/food/images/shoes.png", "vocab/food/images/socks.jpg", "vocab/food/images/jeans.gif", "vocab/food/images/shorts.png", "vocab/food/images/belt.jpg", "vocab/food/images/suit.jpg", "vocab/food/images/sandals.png", "vocab/food/images/boots.gif", "vocab/food/images/vest.gif", "vocab/food/images/underwear.png"]
+
+
+document.getElementById("mensclothing").addEventListener("click", function (){
+  wordArray = clothingVocab;
+  imageArray = clothingImages;
   newGame();
 })
 
@@ -48,17 +59,15 @@ function clickOnTile(tile,val){
     clickCounter++;
     tile.style.background = 'white';
     console.log(val.substring(0,5));
+    clickedTiles.push(val);
+    tileIds.push(tile.id);
     if (val.substring(0, 5) == "vocab"){
       tileImage = document.createElement("img");
       tileImage.src = val;
       tile.appendChild(tileImage);
-      clickedTiles.push(val);
-      tileIds.push(tile.id);
     }
     else if (val.substring(0, 5) != "vocab"){
       tile.innerHTML = val;
-      clickedTiles.push(val);
-      tileIds.push(tile.id);
     }
     matchOrNot();
   }
@@ -71,12 +80,10 @@ function matchOrNot(tile,val){
         tileIds = [];
         tilesFlipped +=2;
         $("#flippedtiles").html("Tiles Flipped: " + tilesFlipped);
-
           if (tilesFlipped == food.length){
 					alert("Board cleared... generating new board");
 					document.getElementById('memory_board').innerHTML = "";
           $("#flippedtiles").html("Tiles Flipped: 0");
-					newGame();
         }
       }
       else {
@@ -90,7 +97,7 @@ function matchOrNot(tile,val){
 				    clickedTiles = [];
             	    tileIds = [];
 				}
-				setTimeout(flip2Back, 300);
+				setTimeout(flip2Back, 400);
       }
   }
 }
