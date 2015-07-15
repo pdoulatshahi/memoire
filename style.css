@@ -2,6 +2,10 @@ body {
   background-color: lemonchiffon;
 }
 
+.button {
+  text-align:center;
+  
+}
 h1 {
   text-align: center;
   font-family: gotham,"Helvetica Neue",Helvetica,Roboto,sans-serif}
