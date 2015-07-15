@@ -2,6 +2,27 @@ var foodVocab = ["pomme", "banane", "orange", "raisins", "avocat", "citron", "pr
 
 var foodImages = ["vocab/food/images/apple.jpg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.jpg", "vocab/food/images/plum.jpg", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.jpg", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/apricot.jpg"]
 
+document.getElementById("fruits").addEventListener("click", function (){
+  wordArray = foodVocab;
+  imageArray = foodImages;
+  newGame();
+})
+
+var vegetableVocab = ["laitue", "céleri", "brocoli", "aubergine", "citrouille", "courgette", "frites", "asperge", "oignon", "ail", "concombre", "piment", "poivron", "champignon", "betterave", "artichaut"]
+
+var vegetableImages = ["vocab/food/images/lettuce.jpg", "vocab/food/images/celery.png", "vocab/food/images/broccoli.png", "vocab/food/images/eggplant.jpg", "vocab/food/images/pumpking.jpeg", "vocab/food/images/zucchini.jpg", "vocab/food/images/frenchfries.gif", "vocab/food/images/asparagus.jpg", "vocab/food/images/onion.png", "vocab/food/images/garlic.jpg", "vocab/food/images/cucumber.jpg", "vocab/food/images/chilipepper.jpeg", "vocab/food/images/bellpepper.png", "vocab/food/images/mushroom.png", "vocab/food/images/beet.jpg", "vocab/food/images/artichoke.gif"]
+
+document3.getElementById("vegetables").addEventListener("click", function (){
+  wordArray = vegetableVocab;
+  imageArray = vegetableImages;
+  newGame();
+})
+
+var farsiVocab = ["سیب", " موز", ]
+
+
+var englishVocab = ["vocab/food/images/apple.jpg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.jpg", "vocab/food/images/plum.jpg", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.jpg", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/apricot.jpg"]
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -18,13 +39,13 @@ function newGame(){
     clickedTiles = [];
     tileIds = [];
     tilesFlipped = 0;
-    food = foodVocab.concat(foodImages);
-    shuffleArray(food);
-    for(var i = 0; i < food.length; i++) {
-		$("#memory_board").append('<div id="tile_'+i+'" data-food='+food[i]+' class="card"></div>');
+    gameArray = wordArray.concat(imageArray);
+    shuffleArray(gameArray);
+    for(var i = 0; i < gameArray.length; i++) {
+		$("#memory_board").append('<div id="tile_'+i+'" data-card='+gameArray[i]+' class="card"></div>');
 	  }
     $("body").on("click", ".card", function(event){
-      clickOnTile(event.target,event.target.getAttribute("data-food"));
+      clickOnTile(event.target,event.target.getAttribute("data-card"));
     });
   }
 
@@ -49,12 +70,13 @@ function clickOnTile(tile,val){
 
 function matchOrNot(tile,val){
     if (clickCounter % 2 === 0) {
-      if (((foodVocab.indexOf(clickedTiles[0]) === foodImages.indexOf(clickedTiles[1])) && (foodVocab.indexOf(clickedTiles[0]) !== -1))
-      || (foodVocab.indexOf(clickedTiles[1]) === foodImages.indexOf(clickedTiles[0])) && ((foodVocab.indexOf(clickedTiles[1])) !== -1)) {
+      if (((wordArray.indexOf(clickedTiles[0]) === imageArray.indexOf(clickedTiles[1])) && (wordArray.indexOf(clickedTiles[0]) !== -1))
+      || (wordArray.indexOf(clickedTiles[1]) === imageArray.indexOf(clickedTiles[0])) && ((wordArray.indexOf(clickedTiles[1])) !== -1)) {
         clickedTiles = [];
         tileIds = [];
         tilesFlipped +=2;
         $("#flippedtiles").html("Tiles Flipped: " + tilesFlipped);
+
           if (tilesFlipped == food.length){
 					alert("Board cleared... generating new board");
 					document.getElementById('memory_board').innerHTML = "";
@@ -78,4 +100,4 @@ function matchOrNot(tile,val){
   }
 }
 
-newGame()
+newGame();
