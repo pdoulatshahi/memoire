@@ -1,6 +1,6 @@
 var foodVocab = ["pomme", "banane", "orange", "raisins", "avocat", "citron", "citronvert", "pastèque", "mangue", "poire", "framboise", "fraise", "myrtille", "cerise", "ananas", "pamplemousse"]
 
-var foodImages = ["vocab/food/images/apple.jpeg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.png", "vocab/food/images/lime.png", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.png", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/grapefruit.png"]
+var foodImages = ["vocab/food/images/apple.jpg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.png", "vocab/food/images/lime.png", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.png", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/grapefruit.png"]
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -30,7 +30,7 @@ function newGame(){
 
 function clickOnTile(tile,val){
     clickCounter++;
-    tile.style.background = 'green';
+    tile.style.background = 'white';
     console.log(val.substring(0,5));
     if (val.substring(0, 5) == "vocab"){
       tileImage = document.createElement("img");
@@ -54,10 +54,11 @@ function matchOrNot(tile,val){
         clickedTiles = [];
         tileIds = [];
         tilesFlipped +=2;
-        $(".flippedtiles").html("Tiles Flipped: " + tilesFlipped);
+        $("#flippedtiles").html("Tiles Flipped: " + tilesFlipped);
           if (tilesFlipped == food.length){
 					alert("Board cleared... generating new board");
 					document.getElementById('memory_board').innerHTML = "";
+          $("#flippedtiles").html("Tiles Flipped: 0");
 					newGame();
         }
       }
@@ -65,17 +66,16 @@ function matchOrNot(tile,val){
         function flip2Back(){
 				    var tile_1 = document.getElementById(tileIds[0]);
 				    var tile_2 = document.getElementById(tileIds[1]);
-				    tile_1.style.background = "#001f3f";
+				    tile_1.style.background = "#AAAAAA";
             	    tile_1.innerHTML = "";
-				    tile_2.style.background = "#001f3f";
+				    tile_2.style.background = "#AAAAAA";
             	    tile_2.innerHTML = "";
 				    clickedTiles = [];
             	    tileIds = [];
 				}
-				setTimeout(flip2Back, 700);
+				setTimeout(flip2Back, 300);
       }
   }
 }
-
 
 newGame()

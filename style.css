@@ -1,40 +1,32 @@
-h1 {
-  text-align: center;
-  font-family: avenir,'avenir next',helvetica,arial,sans-serif;}
+body {
+  background-color: lemonchiffon;
 }
 
-.flippedtiles {
+h1 {
+  text-align: center;
+  font-family: gotham,"Helvetica Neue",Helvetica,Roboto,sans-serif}
+}
+
+#flippedtiles {
+  text-align: center;
   font-family: avenir,'avenir next',helvetica,arial,sans-serif;
-  display:inline-block;
-  width: 20%;
   color: "green";
 }
 
-.timer {
-  font-family: avenir,'avenir next',helvetica,arial,sans-serif;
-  display: inline-block;
-  width: 20%;
-}
-
-
 #memory_board {
-  background: #7FDBFF;
-  border: #999 10px solid;
-  border-radius: 10px;
-  width: 1090px;
-  height: 570px;
-  padding: 24px;
+  width: 1000px;
+  height: 550px;
   margin:0px auto;
 }
 
-#memory_board > div{
-  background: #001f3f;
+.card{
+  background: #AAAAAA;
   border-radius: 10px;
-  border: #000 1px solid;
+  border: #AAAAAA 2px solid;
   width: 71px;
   height: 71px;
   float: left;
-  margin: 10px;
+  margin: 3px;
   padding: 20px;
   font-size: 64px;
   cursor: pointer;
@@ -45,7 +37,9 @@ h1 {
   font-family: avenir,'avenir next',helvetica,arial,sans-serif;}
 
 .card:hover {
-  box-shadow: 7px 7px 5px #888;
+  box-shadow: 5px 5px 3px #888;
+  background: #DDDDDD;
+  border: #FF851B 2px solid;
   	}
 
 img {
