@@ -9,11 +9,22 @@
 </head>
 <body>
   <h1>Jeu de Mémoire</h1>
-  <div class="button">
-	<button type="button" id="fruits">Les fruits</button>
-	<button type="button" id ="vegetables">Les légumes</button>
-  <button type="button" id="mensclothing">Les vêtements d'homme</button>
-  </div>
+  <div class="ph-container">
+    <div class="ph-float">
+        <a href='#' class='ph-button ph-btn-blue' id="fruits">Fruits</a>
+    </div>
+  
+    <div class="ph-float">
+        <a href='#' class='ph-button ph-btn-green' id="vegetables">Légumes</a>
+    </div> 
+    <div class="ph-float">
+        <a href='#' class='ph-button ph-btn-grey' id ="mensclothing">Vêtements d'homme</a>
+    </div> 
+     <div class="ph-float">
+        <a href='#' class='ph-button ph-btn-red'>One more!</a>
+    </div>    
+</div>    
+<div class="ph-clear"></div>   
   <p id="flippedtiles">Tiles Flipped: 0</p>
   <div id="memory_board"></div>
 </body>
