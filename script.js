@@ -18,9 +18,9 @@ document.getElementById("vegetables").addEventListener("click", function (){
   newGame();
 })
 
-var clothingVocab = ["pantalon", "t-shirt", "chemise", "chapeau", "casquette", "cravate", "chaussures", "chaussettes", "jean", "short", "ceinture", "costume", "sandales", "bottes", "gilet", "sous-vêtements"]
+var clothingVocab = ["pantalon", "t-shirt", "chemise", "chapeau", "casquette", "cravate", "chaussures", "chaussettes", "jean", "short", "ceinture", "costume", "sandales", "bottes", "gilet", "lunettes"]
 
-var clothingImages = ["vocab/food/images/pants.png", "vocab/food/images/t-shirt.jpg", "vocab/food/images/shirt.png", "vocab/food/images/hat.gif", "vocab/food/images/cap.gif", "vocab/food/images/tie.png", "vocab/food/images/shoes.png", "vocab/food/images/socks.jpg", "vocab/food/images/jeans.gif", "vocab/food/images/shorts.png", "vocab/food/images/belt.jpg", "vocab/food/images/suit.jpg", "vocab/food/images/sandals.png", "vocab/food/images/boots.gif", "vocab/food/images/vest.gif", "vocab/food/images/underwear.png"]
+var clothingImages = ["vocab/food/images/pants.png", "vocab/food/images/t-shirt.jpg", "vocab/food/images/shirt.png", "vocab/food/images/hat.gif", "vocab/food/images/cap.gif", "vocab/food/images/tie.png", "vocab/food/images/shoes.png", "vocab/food/images/socks.jpg", "vocab/food/images/jeans.gif", "vocab/food/images/shorts.png", "vocab/food/images/belt.jpg", "vocab/food/images/suit.jpg", "vocab/food/images/sandals.png", "vocab/food/images/boots.gif", "vocab/food/images/vest.gif", "vocab/food/images/glasses.png"]
 
 
 document.getElementById("mensclothing").addEventListener("click", function (){
