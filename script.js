@@ -12,7 +12,7 @@ var vegetableVocab = ["laitue", "céleri", "brocoli", "aubergine", "citrouille",
 
 var vegetableImages = ["vocab/food/images/lettuce.jpg", "vocab/food/images/celery.png", "vocab/food/images/broccoli.png", "vocab/food/images/eggplant.jpg", "vocab/food/images/pumpking.jpeg", "vocab/food/images/zucchini.jpg", "vocab/food/images/frenchfries.gif", "vocab/food/images/asparagus.jpg", "vocab/food/images/onion.png", "vocab/food/images/garlic.jpg", "vocab/food/images/cucumber.jpg", "vocab/food/images/chilipepper.jpeg", "vocab/food/images/bellpepper.png", "vocab/food/images/mushroom.png", "vocab/food/images/beet.jpg", "vocab/food/images/artichoke.gif"]
 
-document3.getElementById("vegetables").addEventListener("click", function (){
+document.getElementById("vegetables").addEventListener("click", function (){
   wordArray = vegetableVocab;
   imageArray = vegetableImages;
   newGame();
