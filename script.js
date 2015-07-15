@@ -1,6 +1,6 @@
-var foodVocab = ["pomme", "banane", "orange", "raisins", "avocat", "citron", "citronvert", "pastèque", "mangue", "poire", "framboise", "fraise", "myrtille", "cerise", "ananas", "pamplemousse"]
+var foodVocab = ["pomme", "banane", "orange", "raisins", "avocat", "citron", "prune", "pastèque", "mangue", "poire", "framboise", "fraise", "myrtille", "cerise", "ananas", "abricot"]
 
-var foodImages = ["vocab/food/images/apple.jpg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.png", "vocab/food/images/lime.png", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.png", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/grapefruit.png"]
+var foodImages = ["vocab/food/images/apple.jpg", "vocab/food/images/banana.jpg", "vocab/food/images/orange.png", "vocab/food/images/grapes.jpg", "vocab/food/images/avocado.jpg", "vocab/food/images/lemon.jpg", "vocab/food/images/plum.jpg", "vocab/food/images/watermelon.jpg", "vocab/food/images/mango.png", "vocab/food/images/pear.png", "vocab/food/images/raspberry.png", "vocab/food/images/strawberry.jpg", "vocab/food/images/blueberry.gif", "vocab/food/images/cherry.png", "vocab/food/images/pineapple.jpeg", "vocab/food/images/apricot.jpg"]
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
