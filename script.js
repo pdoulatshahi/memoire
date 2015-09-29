@@ -39,6 +39,7 @@ function shuffleArray(array) {
 }
 
 function newGame(){
+    console.log("test");
     clickCounter = 0;
     output = [];
     clickedTiles = [];
