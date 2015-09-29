@@ -46,18 +46,21 @@ function newGame(){
     tilesFlipped = 0;
     gameArray = wordArray.concat(imageArray);
     shuffleArray(gameArray);
+    $("memory_board").empty();
     for(var i = 0; i < gameArray.length; i++) {
-		$("#memory_board").append('<div id="tile_'+i+'" data-card='+gameArray[i]+' class="card"></div>');
-	  }
+		  $("#memory_board").append('<div id="tile_'+i+'" data-card='+gameArray[i]+' class="card"></div>');
+	   
+    } 
     $("body").on("click", ".card", function(event){
       clickOnTile(event.target,event.target.getAttribute("data-card"));
     });
   }
 
+//add colors to cards so that word/image cards have different colors
+//once cards have been matched, add class to card "flipped?" so that clickonTile does not run on those flipped cards
 function clickOnTile(tile,val){
     clickCounter++;
     tile.style.background = 'white';
-    console.log(val.substring(0,5));
     clickedTiles.push(val);
     tileIds.push(tile.id);
     if (val.substring(0, 5) == "vocab"){
@@ -71,7 +74,7 @@ function clickOnTile(tile,val){
     matchOrNot();
   }
 
-function matchOrNot(tile,val){
+function matchOrNot(){
     if (clickCounter % 2 === 0) {
       if (((wordArray.indexOf(clickedTiles[0]) === imageArray.indexOf(clickedTiles[1])) && (wordArray.indexOf(clickedTiles[0]) !== -1))
       || (wordArray.indexOf(clickedTiles[1]) === imageArray.indexOf(clickedTiles[0])) && ((wordArray.indexOf(clickedTiles[1])) !== -1)) {
