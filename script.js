@@ -28,6 +28,10 @@ document.getElementById("mensclothing").addEventListener("click", function (){
   newGame();
 })
 
+document.getElementById("reset").addEventListener("click", function (){
+  location.reload();
+})
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -47,7 +51,7 @@ function newGame(){
     tilesFlipped = 0;
     gameArray = wordArray.concat(imageArray);
     shuffleArray(gameArray);
-    $("memory_board").empty();
+    $("#memory_board").empty();
     for(var i = 0; i < gameArray.length; i++) {
 		  $("#memory_board").append('<div id="tile_'+i+'" data-card='+gameArray[i]+' class="card"></div>');
 	   
@@ -82,7 +86,7 @@ function matchOrNot(){
         clickedTiles = [];
         tileIds = [];
         tilesFlipped +=2;
-        $("#flippedtiles").html("Tiles Flipped: " + tilesFlipped);
+        $("h2").html("Tiles Flipped: " + tilesFlipped);
           if (tilesFlipped == food.length){
 					alert("Board cleared... generating new board");
 					document.getElementById('memory_board').innerHTML = "";
