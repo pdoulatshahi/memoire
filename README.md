@@ -1,6 +1,6 @@
-# project1
+# Mémoire
 
-I will be designing a concentration memory game with French vocabulary. Users will match French words to pictures.
+I have designed a simple concentration memory game with French vocabulary. Users will match French words to pictures.
 
 User Stories
 
